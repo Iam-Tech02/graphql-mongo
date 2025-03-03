@@ -1,0 +1,73 @@
+# Query 1: Get Customer Spending
+query GetCustomerSpending($customerId: ID!) {
+  getCustomerSpending(customerId: $customerId) {
+    customerId
+    totalSpent
+    averageOrderValue
+    lastOrderDate
+  }
+}
+
+# Variables for Query 1
+# {
+#   "customerId": "7895595e-7f25-47fe-a6f8-94b31bfab736"
+# }
+
+# Query 2: Get Top Selling Products
+query GetTopSellingProducts($limit: Int!) {
+  getTopSellingProducts(limit: $limit) {
+    productId
+    name
+    totalSold
+  }
+}
+
+# Variables for Query 2
+# {
+#   "limit": 5
+# }
+
+# Query 3: Get Sales Analytics
+query GetSalesAnalytics($startDate: String!, $endDate: String!) {
+  getSalesAnalytics(startDate: $startDate, endDate: $endDate) {
+    totalRevenue
+    completedOrders
+    categoryBreakdown {
+      category
+      revenue
+    }
+  }
+}
+
+# Variables for Query 3
+# {
+#   "startDate": "2024-12-01",
+#   "endDate": "2025-02-28"
+# }
+
+# Query 4: Get Customer Orders
+query GetCustomerOrders($customerId: ID!, $page: Int!, $limit: Int!) {
+  getCustomerOrders(customerId: $customerId, page: $page, limit: $limit) {
+    orders {
+      _id
+      customerId
+      products {
+        productId
+        quantity
+        priceAtPurchase
+      }
+      totalAmount
+      orderDate
+      status
+    }
+    totalPages
+    currentPage
+  }
+}
+
+# Variables for Query 4
+# {
+#   "customerId": "7895595e-7f25-47fe-a6f8-94b31bfab736",
+#   "page": 1,
+#   "limit": 1
+# }
