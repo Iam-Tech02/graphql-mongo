@@ -2,8 +2,8 @@
 
 1. Clone the repository:
    ```sh
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/Iam-Tech02/graphql-mongo.git
+   cd graphql-mongo
    ```
 2. Install dependencies:
    ```sh
